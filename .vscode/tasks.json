@@ -4,18 +4,18 @@
     "tasks": [
 
         {
-            "label": "build-sandbox-Sandbox",
+            "label": "build-sandbox-one_two_ten",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/sandbox/Sandbox/Sandbox.csproj",
+                "${workspaceFolder}/sandbox/one_two_ten/one_two_ten.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
             "problemMatcher": "$msCompile"
         },
-
+        
         {
             "label": "build-csharp-prep-Prep1",
             "command": "dotnet",
