@@ -193,7 +193,7 @@ namespace MindfulnessApp
                         activity = new ListingActivity();
                         break;
                     case "4":
-                        activity = new ThoughtActivity();  // New activity instantiated here
+                        activity = new ThoughtActivity();  // The activity instantiated here (The 4th one)
                         break;
                     case "5":
                         return;
