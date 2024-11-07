@@ -37,7 +37,7 @@ namespace MindfulnessApp
         public abstract void RunActivity();
     }
 
-    // Breathing Activity
+    // Breathing Activity (REQ 1)
     public class BreathingActivity : MindfulnessActivity
     {
         public override void RunActivity()
@@ -57,7 +57,7 @@ namespace MindfulnessApp
         }
     }
 
-    // Reflection Activity
+    // Reflection Activity (REQ 2)
     public class ReflectionActivity : MindfulnessActivity
     {
         private List<string> prompts = new List<string>
@@ -97,7 +97,7 @@ namespace MindfulnessApp
         }
     }
 
-    // Listing Activity
+    // Listing Activity (REQ 3)
     public class ListingActivity : MindfulnessActivity
     {
         private List<string> prompts = new List<string>
@@ -131,7 +131,7 @@ namespace MindfulnessApp
         }
     }
 
-    // Thought Activity
+    // Thought Activity, idk where i was going with this activity
     public class ThoughtActivity : MindfulnessActivity
     {
         private List<string> categories = new List<string>
@@ -162,7 +162,7 @@ namespace MindfulnessApp
         }
     }
 
-    // Main Program
+    // Main Program (Had a tutor help me with this.)
     class Program
     {
         static void Main(string[] args)
