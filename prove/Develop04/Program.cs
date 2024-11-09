@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 
+
+// The classes 
 namespace MindfulnessApp
 {
     public abstract class MindfulnessActivity
@@ -131,7 +133,7 @@ namespace MindfulnessApp
         }
     }
 
-    // Thought Activity, idk where i was going with this activity
+    // Thought Activity, idk where i was going with this activity so i just made something for the creavitiy part
     public class ThoughtActivity : MindfulnessActivity
     {
         private List<string> categories = new List<string>
@@ -182,7 +184,7 @@ namespace MindfulnessApp
                 MindfulnessActivity activity;
 
                 switch (choice)
-                {
+                 { 
                     case "1":
                         activity = new BreathingActivity();
                         break;
@@ -193,7 +195,7 @@ namespace MindfulnessApp
                         activity = new ListingActivity();
                         break;
                     case "4":
-                        activity = new ThoughtActivity();  // The activity instantiated here (The 4th one)
+                        activity = new ThoughtActivity();  // Cases are the activiivities so case 1-5 are the acitivites, 5th is the exit/finish
                         break;
                     case "5":
                         return;
@@ -207,3 +209,4 @@ namespace MindfulnessApp
         }
     }
 }
+
