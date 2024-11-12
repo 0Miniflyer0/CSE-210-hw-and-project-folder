@@ -4,40 +4,30 @@ class Program
 {
     static void Main(string[] args)
     {
-        DisplayWelcomeMessage();
+        // Notice that the list is a list of "Shape" objects. That means
+        // you can put any Shape objects in there, and also, any object where
+        // the class inherits from Shape
+        List<Shape> shapes = new List<Shape>();
 
-        string userName = PromptUserName();
-        int userNumber = PromptUserNumber();
+        Square s1 = new Square("Red", 3);
+        shapes.Add(s1);
 
-        int squaredNumber = SquareNumber(userNumber);
+        Rectangle s2 = new Rectangle("Blue", 4, 5);
+        shapes.Add(s2);
 
-        DisplayResult(userName, squaredNumber);
-    }
-    static void DisplayWelcomeMessage()
-    {
-        Console.WriteLine("Welcome to the program!");
-    }
-    static string PromptUserName()
-    {
-        Console.Write("Please enter your name: ");
-        string name = Console.ReadLine();
+        Circle s3 = new Circle("Green", 6);
+        shapes.Add(s3);
 
-        return name;
-    }
-    static int PromptUserNumber()
-    {
-        Console.Write("Please enter your favorite number: ");
-        int number = int.Parse(Console.ReadLine());
+        foreach (Shape s in shapes)
+        {
+            // Notice that all shapes have a GetColor method from the base class
+            string color = s.GetColor();
 
-        return number;
-    }
-    static int SquareNumber(int number)
-    {
-        int square = number * number;
-        return square;
-    }
-    static void DisplayResult(string name, int square)
-    {
-        Console.WriteLine($"{name}, the square of your number is {square}");
+            // Notice that all shapes have a GetArea method, but the behavior is
+            // different for each type of shape
+            double area = s.GetArea();
+
+            Console.WriteLine($"The {color} shape has an area of {area}.");
+        }
     }
 }
