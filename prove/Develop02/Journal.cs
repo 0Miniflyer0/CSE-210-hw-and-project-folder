@@ -4,46 +4,51 @@ using System.IO;
 
 public class Journal
 {
-    public List<Entry> Entries { get; set; } = new List<Entry>();
+    private List<Entry> _entries = new List<Entry>();
+
+    public List<Entry> GetEntries()
+    {
+        return _entries;
+    }
 
     public void AddEntry(Entry entry)
     {
-        Entries.Add(entry);
+        _entries.Add(entry);
     }
 
     public void DisplayEntries()
     {
-        foreach (var entry in Entries)
+        foreach (Entry log in _entries)  
         {
-            Console.WriteLine(entry);
+            Console.WriteLine(log); 
         }
     }
 
-    public void SaveToFile(string filename)
+    public void SaveToFile(string fileName)
     {
-        using (StreamWriter writer = new StreamWriter(filename))
+        using (StreamWriter writer = new StreamWriter(fileName))
         {
-            foreach (var entry in Entries)
+            foreach (Entry log in _entries)  
             {
-                writer.WriteLine($"{entry.Date}|{entry.Prompt}|{entry.Response}");
+                writer.WriteLine($"{log.GetDate()}|{log.GetPrompt()}|{log.GetResponse()}");
             }
         }
     }
 
-    public void LoadFromFile(string filename)
+    public void LoadFromFile(string fileName)
     {
-        if (File.Exists(filename))
+        if (File.Exists(fileName))
         {
-            Entries.Clear();
-            string[] lines = File.ReadAllLines(filename);
-            foreach (var line in lines)
+            _entries.Clear();
+            string[] lines = File.ReadAllLines(fileName);
+            foreach (string line in lines) 
             {
                 string[] parts = line.Split('|');
                 if (parts.Length == 3)
                 {
-                    Entry entry = new Entry(parts[1], parts[2]);
-                    entry.Date = DateTime.Parse(parts[0]);
-                    Entries.Add(entry);
+                    Entry log = new Entry(parts[1], parts[2]);  
+                    log.SetDate(DateTime.Parse(parts[0]));
+                    _entries.Add(log);
                 }
             }
         }

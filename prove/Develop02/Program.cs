@@ -5,8 +5,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        Journal journal = new Journal();
-        List<string> prompts = new List<string>
+        Journal userJournal = new Journal();
+        List<string> journalPrompts = new List<string>
         {
             "Who was the most interesting person I interacted with today?",
             "What was the best part of my day?",
@@ -15,8 +15,8 @@ class Program
             "If I had one thing I could do over today, what would it be?"
         };
 
-        bool running = true;
-        while (running)
+        bool isRunning = true;
+        while (isRunning)
         {
             Console.WriteLine("\nJournal Menu:");
             Console.WriteLine("1. Write a new entry");
@@ -26,26 +26,26 @@ class Program
             Console.WriteLine("5. Exit");
             Console.Write("Choose an option: ");
 
-            string choice = Console.ReadLine();
-            switch (choice)
+            string userChoice = Console.ReadLine();
+            switch (userChoice)
             {
                 case "1":
-                    WriteNewEntry(journal, prompts);
+                    WriteNewEntry(userJournal, journalPrompts);
                     break;
                 case "2":
-                    journal.DisplayEntries();
+                    userJournal.DisplayEntries();
                     break;
                 case "3":
-                    SaveJournal(journal);
+                    SaveJournal(userJournal);
                     break;
                 case "4":
-                    LoadJournal(journal);
+                    LoadJournal(userJournal);
                     break;
                 case "5":
-                    running = false;
+                    isRunning = false;
                     break;
                 default:
-                    Console.WriteLine("Invalid option. Try again.");
+                    Console.WriteLine("Invalid option. Please select one of the following options.");
                     break;
             }
         }
@@ -53,29 +53,29 @@ class Program
 
     static void WriteNewEntry(Journal journal, List<string> prompts)
     {
-        Random random = new Random();
-        string prompt = prompts[random.Next(prompts.Count)];
-        Console.WriteLine(prompt);
+        Random randomGenerator = new Random();
+        string selectedPrompt = prompts[randomGenerator.Next(prompts.Count)];
+        Console.WriteLine(selectedPrompt);
         Console.Write("Your response: ");
-        string response = Console.ReadLine();
+        string userResponse = Console.ReadLine();
 
-        Entry newEntry = new Entry(prompt, response);
-        journal.AddEntry(newEntry);
+        Entry newJournalEntry = new Entry(selectedPrompt, userResponse);
+        journal.AddEntry(newJournalEntry);
     }
 
     static void SaveJournal(Journal journal)
     {
         Console.Write("Enter filename to save: ");
-        string filename = Console.ReadLine();
-        journal.SaveToFile(filename);
-        Console.WriteLine("Journal saved successfully.");
+        string fileName = Console.ReadLine();
+        journal.SaveToFile(fileName);
+        Console.WriteLine("Journal has been saved.");
     }
 
     static void LoadJournal(Journal journal)
     {
         Console.Write("Enter filename to load: ");
-        string filename = Console.ReadLine();
-        journal.LoadFromFile(filename);
-        Console.WriteLine("Journal loaded successfully.");
+        string fileName = Console.ReadLine();
+        journal.LoadFromFile(fileName);
+        Console.WriteLine("Journal has been loaded.");
     }
 }

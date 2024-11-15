@@ -2,19 +2,49 @@ using System;
 
 public class Entry
 {
-    public string Prompt { get; set; }
-    public string Response { get; set; }
-    public DateTime Date { get; set; }
+    private string _prompt;
+    private string _response;
+    private DateTime _date;
 
     public Entry(string prompt, string response)
     {
-        Prompt = prompt;
-        Response = response;
-        Date = DateTime.Now;
+        _prompt = prompt;
+        _response = response;
+        _date = DateTime.Now;
+    }
+
+    public string GetPrompt()
+    {
+        return _prompt;
+    }
+
+    public void SetPrompt(string prompt)
+    {
+        _prompt = prompt;
+    }
+
+    public string GetResponse()
+    {
+        return _response;
+    }
+
+    public void SetResponse(string response)
+    {
+        _response = response;
+    }
+
+    public DateTime GetDate()
+    {
+        return _date;
+    }
+
+    public void SetDate(DateTime date)
+    {
+        _date = date;
     }
 
     public override string ToString()
     {
-        return $"{Date.ToShortDateString()} - {Prompt}\n{Response}\n";
+        return $"{_date.ToShortDateString()} - {_prompt}\n{_response}\n";
     }
 }
