@@ -7,7 +7,6 @@ public class Workout
     private int duration_minutes;
     private int calories_burned;
 
-
     public Workout(string name, DateTime date, int duration, int calories)
     {
         workout_name = name;
@@ -15,10 +14,18 @@ public class Workout
         duration_minutes = duration;
         calories_burned = calories;
     }
-
-    public void LogWorkout()
+    public virtual void InputWorkoutDetails()
     {
-        Console.WriteLine("Workout logged: " + workout_name);
+        Console.WriteLine("Enter the workout name:");
+        workout_name = Console.ReadLine();
+
+        Console.WriteLine("Enter the workout duration (in minutes):");
+        duration_minutes = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Enter the calories burned:");
+        calories_burned = int.Parse(Console.ReadLine());
+
+        workout_date = DateTime.Now; // Automatically set the date to now
     }
 
     public virtual void DisplayWorkoutDetails()

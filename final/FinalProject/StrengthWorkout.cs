@@ -14,6 +14,20 @@ public class StrengthWorkout : Workout
         sets = sets_count;
     }
 
+    public override void InputWorkoutDetails()
+    {
+        base.InputWorkoutDetails();
+
+        Console.WriteLine("Enter the weight lifted (in lbs):");
+        weight_lifted = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Enter the number of repetitions:");
+        repetitions = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Enter the number of sets:");
+        sets = int.Parse(Console.ReadLine());
+    }
+
     public override void DisplayWorkoutDetails()
     {
         base.DisplayWorkoutDetails();

@@ -12,6 +12,17 @@ public class CardioWorkout : Workout
         average_pace = pace;
     }
 
+    public override void InputWorkoutDetails()
+    {
+        base.InputWorkoutDetails();
+
+        Console.WriteLine("Enter the distance (in miles):");
+        distance_miles = double.Parse(Console.ReadLine());
+
+        Console.WriteLine("Enter the average pace (in minutes per mile):");
+        average_pace = double.Parse(Console.ReadLine());
+    }
+
     public override void DisplayWorkoutDetails()
     {
         base.DisplayWorkoutDetails();
