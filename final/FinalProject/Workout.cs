@@ -25,7 +25,7 @@ public class Workout
         Console.WriteLine("Enter the calories burned:");
         calories_burned = int.Parse(Console.ReadLine());
 
-        workout_date = DateTime.Now; // Automatically set the date to now
+        workout_date = DateTime.Now; 
     }
 
     public virtual void DisplayWorkoutDetails()
