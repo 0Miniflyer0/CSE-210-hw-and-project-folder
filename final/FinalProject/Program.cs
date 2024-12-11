@@ -20,17 +20,25 @@ class Program
         Notification notification = new Notification("Remember To Log Your Workout.", userName);
 
 
+        Console.WriteLine("Enter trainer's name: ");
+        string trainerName = Console.ReadLine();
+
         Console.WriteLine("Enter trainer's expertise area: ");
         string expertiseArea = Console.ReadLine();
-        Trainer trainer = new Trainer(userName, expertiseArea);
+        Trainer trainer = new Trainer(trainerName, expertiseArea);
+
+        Console.WriteLine("Enter your goal name: ");
+        string goalName = Console.ReadLine();
+
+        Console.WriteLine("Enter your goal target (number of workouts): ");
+        int goalTarget = int.Parse(Console.ReadLine());
 
         Console.WriteLine("Enter goal start date (yyyy-mm-dd): ");
         DateTime startDate = DateTime.Parse(Console.ReadLine());
 
         Console.WriteLine("Enter goal end date (yyyy-mm-dd): ");
         DateTime endDate = DateTime.Parse(Console.ReadLine());
-
-        Goal goal = new Goal("Workout consistency goal", startDate, endDate, 10);  // Example target is 10 workouts
+        Goal goal = new Goal(goalName, startDate, endDate, goalTarget);
 
         bool running = true;
 

@@ -7,7 +7,6 @@ public class Goal
     private DateTime endDate;
     private int goalTarget;
 
-    // Constructor with description, start date, and end date
     public Goal(string description, DateTime start, DateTime end, int target)
     {
         goalDescription = description;
