@@ -2,34 +2,34 @@ using System;
 
 public class Notification
 {
-    private string notification_message;
-    private string recipient_name;
+    private string notificationMessage;
+    private string recipientName;
 
     public Notification(string message, string recipient = null)
     {
-        notification_message = message;
-        recipient_name = recipient;
+        notificationMessage = message;
+        recipientName = recipient;
     }
 
     public void DisplayNotification()
     {
         Console.WriteLine("\nNotification:");
-        if (!string.IsNullOrEmpty(recipient_name))
+        if (!string.IsNullOrEmpty(recipientName))
         {
-            Console.WriteLine($"To: {recipient_name}");
+            Console.WriteLine($"To: {recipientName}");
         }
-        Console.WriteLine($"Message: {notification_message}");
+        Console.WriteLine($"Message: {notificationMessage}");
     }
 
     public void UpdateMessage(string new_message)
     {
-        notification_message = new_message;
+        notificationMessage = new_message;
         Console.WriteLine("Notification message updated.");
     }
 
     public void SetRecipient(string recipient)
     {
-        recipient_name = recipient;
+        recipientName = recipient;
         Console.WriteLine("Recipient updated.");
     }
 }

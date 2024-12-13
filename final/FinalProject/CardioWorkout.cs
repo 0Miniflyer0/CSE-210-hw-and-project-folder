@@ -2,14 +2,14 @@ using System;
 
 public class CardioWorkout : Workout
 {
-    private double distance_miles;
-    private double average_pace;
+    private double distanceMiles;
+    private double averagePace;
 
     public CardioWorkout(string workoutType, DateTime date, int duration, int calories, double distance, double pace)
         : base(workoutType, date, duration, calories)
     {
-        distance_miles = distance;
-        average_pace = pace;
+        distanceMiles = distance;
+        averagePace = pace;
     }
 
     public override void InputWorkoutDetails()
@@ -17,16 +17,16 @@ public class CardioWorkout : Workout
         base.InputWorkoutDetails();
 
         Console.WriteLine("Enter the distance (in miles):");
-        distance_miles = double.Parse(Console.ReadLine());
+        distanceMiles = double.Parse(Console.ReadLine());
 
         Console.WriteLine("Enter the average pace (in minutes per mile):");
-        average_pace = double.Parse(Console.ReadLine());
+        averagePace = double.Parse(Console.ReadLine());
     }
 
     public override void DisplayWorkoutDetails()
     {
         base.DisplayWorkoutDetails();
-        Console.WriteLine("Distance: " + distance_miles + " miles");
-        Console.WriteLine("Average Pace: " + average_pace + " min/mile");
+        Console.WriteLine("Distance: " + distanceMiles + " miles");
+        Console.WriteLine("Average Pace: " + averagePace + " min/mile");
     }
 }

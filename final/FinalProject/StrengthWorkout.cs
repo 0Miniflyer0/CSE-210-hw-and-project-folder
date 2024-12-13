@@ -2,14 +2,14 @@ using System;
 
 public class StrengthWorkout : Workout
 {
-    private int weight_lifted;
+    private int weightLifted;
     private int repetitions;
     private int sets;
 
     public StrengthWorkout(string workoutType, DateTime date, int duration, int calories, int weight, int reps, int sets_count)
         : base(workoutType, date, duration, calories)
     {
-        weight_lifted = weight;
+        weightLifted = weight;
         repetitions = reps;
         sets = sets_count;
     }
@@ -19,7 +19,7 @@ public class StrengthWorkout : Workout
         base.InputWorkoutDetails();
 
         Console.WriteLine("Enter the weight lifted (in lbs):");
-        weight_lifted = int.Parse(Console.ReadLine());
+        weightLifted = int.Parse(Console.ReadLine());
 
         Console.WriteLine("Enter the number of repetitions:");
         repetitions = int.Parse(Console.ReadLine());
@@ -31,7 +31,7 @@ public class StrengthWorkout : Workout
     public override void DisplayWorkoutDetails()
     {
         base.DisplayWorkoutDetails();
-        Console.WriteLine("Weight Lifted: " + weight_lifted + " lbs");
+        Console.WriteLine("Weight Lifted: " + weightLifted + " lbs");
         Console.WriteLine("Repetitions: " + repetitions);
         Console.WriteLine("Sets: " + sets);
     }

@@ -20,7 +20,7 @@ public class WorkoutLog
     public void DisplayAllWorkouts()
     {
         Console.WriteLine("\nWorkout Log:");
-        foreach (var workout in workoutList)
+        foreach (Workout workout in workoutList) 
         {
             workout.DisplayWorkoutDetails();
             Console.WriteLine();
@@ -29,9 +29,9 @@ public class WorkoutLog
 
     public void DisplayWorkoutsByType(string type)
     {
-        var filteredWorkouts = workoutList.Where(w => w.GetType().Name == type);
+        IEnumerable<Workout> filteredWorkouts = workoutList.Where(w => w.GetType().Name == type);
         Console.WriteLine($"\n{type} Workouts:");
-        foreach (var workout in filteredWorkouts)
+        foreach (Workout workout in filteredWorkouts) 
         {
             workout.DisplayWorkoutDetails();
             Console.WriteLine();
@@ -40,9 +40,9 @@ public class WorkoutLog
 
     public void DisplayWorkoutsByDate(DateTime date)
     {
-        var filteredWorkouts = workoutList.Where(w => w.GetWorkoutDate().Date == date.Date);
+        IEnumerable<Workout> filteredWorkouts = workoutList.Where(w => w.GetWorkoutDate().Date == date.Date);
         Console.WriteLine($"\nWorkouts on {date.ToShortDateString()}:");
-        foreach (var workout in filteredWorkouts)
+        foreach (Workout workout in filteredWorkouts) 
         {
             workout.DisplayWorkoutDetails();
             Console.WriteLine();
